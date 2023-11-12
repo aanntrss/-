@@ -1,0 +1,42 @@
+#меню
+
+from tkinter import *
+root = Tk()
+
+def open():
+    print("частокол")
+
+menubar = Menu(root)
+root.config(menu=menubar)
+
+menubar.add_command(label="частокол", command=open)
+
+
+root.mainloop()
+
+
+#частокол
+
+word = input("")
+key = 2
+
+word = str(word).replace(" ", "")
+si= dict()
+result = ""
+
+for i in range(key):
+    si[i] = list()
+
+
+for num in range(0, len(word), key):
+    for i in range(key):
+        if len(word) > num + i:
+            si[i] += word[num + i]
+
+shiphred_list = list(si.values())
+shiphred_list.reverse()
+
+for i in shiphred_list:
+    result += "".join(i)
+
+print(result)
